@@ -1,4 +1,4 @@
-package dto;
+package projeto.redes_calculadora.dto;
 
 public class RedeDTO {
     private String ipInformado;
