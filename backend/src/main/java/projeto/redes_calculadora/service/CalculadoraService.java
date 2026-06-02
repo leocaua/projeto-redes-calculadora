@@ -1,6 +1,6 @@
-package service;
+package projeto.redes_calculadora.service;
 
-import dto.RedeDTO;
+import projeto.redes_calculadora.dto.RedeDTO;
 import org.springframework.stereotype.Service;
 
 @Service
