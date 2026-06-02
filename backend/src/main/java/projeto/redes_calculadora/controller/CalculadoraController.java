@@ -1,13 +1,13 @@
-package controller;
+package projeto.redes_calculadora.controller;
 
 
-import dto.RedeDTO;
+import projeto.redes_calculadora.dto.RedeDTO;
 import org.springframework.web.bind.annotation.*;
-import service.CalculadoraService;
+import projeto.redes_calculadora.service.CalculadoraService;
 
 @RestController
-@RequestMapping
-@CrossOrigin
+@RequestMapping("/api/calculadora")
+@CrossOrigin(origins = "*")
 public class CalculadoraController {
     private final CalculadoraService service;
 
@@ -15,7 +15,7 @@ public class CalculadoraController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/calcular")
     public RedeDTO calcular(@RequestParam String ip, @RequestParam int cidr) {
         return service.calcular(ip, cidr);
     }
