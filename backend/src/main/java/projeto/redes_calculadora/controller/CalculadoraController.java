@@ -16,7 +16,7 @@ public class CalculadoraController {
     }
 
     @GetMapping("/calcular")
-    public RedeDTO calcular(@RequestParam String ip, @RequestParam int cidr) {
-        return service.calcular(ip, cidr);
+    public RedeDTO calcular(@RequestParam String ip, @RequestParam String mascara) {
+        return service.calcular(ip, mascara);
     }
 }

@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculadoraService {
 
-    public RedeDTO calcular(String ip, int cidr) {
+    public RedeDTO calcular(String ip, String mascaraInput) {
+        int cidr = converterMascaraParaCidr(mascaraInput);
         String[] partesIp = ip.split("\\.");
         int[] octetosIp = new int[4];
         for (int i = 0; i < 4; i++) {
@@ -62,5 +63,21 @@ public class CalculadoraService {
 
     private String formatarIp(int[] octetos) {
         return octetos[0] + "." + octetos[1] + "." + octetos[2] + "." + octetos[3];
+    }
+
+    private int converterMascaraParaCidr(String mascaraInput) {
+        mascaraInput = mascaraInput.replace("/", "");
+
+        if (!mascaraInput.contains(".")) {
+            return Integer.parseInt(mascaraInput);
+        }
+
+        int cidr = 0;
+        String[] octetos = mascaraInput.split("\\.");
+        for (String octeto : octetos) {
+            int valor = Integer.parseInt(octeto);
+            cidr += Integer.bitCount(valor);
+        }
+        return cidr;
     }
 }
