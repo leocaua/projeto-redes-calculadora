@@ -1,11 +1,10 @@
-/* Importando uma fonte moderna do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
 
 :host {
   display: block;
   font-family: 'Inter', sans-serif;
-  color: #1e293b;
-  background-color: #f8fafc;
+  color: #e2e8f0;
+  background-color: #0b1120;
   min-height: 100vh;
   padding: 40px 20px;
 }
@@ -23,23 +22,24 @@
 .header h1 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #f8fafc;
   margin: 0 0 8px 0;
   letter-spacing: -0.5px;
+  text-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
 }
 
 .header p {
-  color: #64748b;
+  color: #94a3b8;
   margin: 0;
   font-size: 0.95rem;
 }
 
 .card {
-  background: #ffffff;
+  background: #1e293b;
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  border: 1px solid #334155;
   margin-bottom: 24px;
 }
 
@@ -51,7 +51,7 @@
   display: block;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #475569;
+  color: #cbd5e1;
   margin-bottom: 8px;
 }
 
@@ -59,10 +59,10 @@
   width: 100%;
   padding: 12px 16px;
   font-size: 1rem;
-  font-family: 'Inter', sans-serif;
-  color: #0f172a;
-  background-color: #f8fafc;
-  border: 1px solid #cbd5e1;
+  font-family: 'Fira Code', monospace;
+  color: #f8fafc;
+  background-color: #0f172a;
+  border: 1px solid #475569;
   border-radius: 8px;
   box-sizing: border-box;
   transition: all 0.2s ease;
@@ -70,31 +70,39 @@
 
 .input-group input:focus {
   outline: none;
-  border-color: #3b82f6;
-  background-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #38bdf8;
+  background-color: #0f172a;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.input-group input::placeholder {
+  color: #475569;
 }
 
 .btn-primary {
   width: 100%;
-  background-color: #2563eb;
-  color: white;
+  background-color: #0284c7;
+  color: #ffffff;
   border: none;
   padding: 14px;
   font-size: 1rem;
   font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .btn-primary:hover {
-  background-color: #1d4ed8;
+  background-color: #0369a1;
+  box-shadow: 0 0 15px rgba(2, 132, 199, 0.5);
 }
 
 .error-msg {
-  color: #ef4444;
-  background-color: #fef2f2;
+  color: #fca5a5;
+  background-color: rgba(127, 29, 29, 0.3);
+  border: 1px solid #991b1b;
   padding: 12px;
   border-radius: 8px;
   font-size: 0.875rem;
@@ -107,11 +115,14 @@
   gap: 8px;
 }
 
-/* Estilos dos Resultados */
+.result-card {
+  border-top: 4px solid #38bdf8;
+}
+
 .result-card h2 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #0f172a;
+  color: #f8fafc;
   margin: 0 0 20px 0;
 }
 
@@ -129,11 +140,12 @@
 
 .result-item.full-width {
   grid-column: 1 / -1;
-  background-color: #f1f5f9;
+  background-color: rgba(15, 23, 42, 0.6);
   padding: 16px;
   border-radius: 8px;
   align-items: center;
   text-align: center;
+  border: 1px dashed #334155;
 }
 
 .label {
@@ -141,38 +153,41 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 600;
-  color: #64748b;
+  color: #94a3b8;
 }
 
 .value {
   font-size: 1rem;
   font-weight: 500;
-  color: #1e293b;
+  color: #f8fafc;
+  font-family: 'Fira Code', monospace;
 }
 
 .highlight-box {
-  background-color: #f8fafc;
+  background-color: rgba(15, 23, 42, 0.6);
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #334155;
 }
 
 .cidr-badge {
-  background-color: #e0e7ff;
-  color: #4f46e5;
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
   padding: 2px 8px;
   border-radius: 4px;
   font-weight: 700;
   display: inline-block;
   width: max-content;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
 }
 
 .divider {
   height: 1px;
-  background-color: #e2e8f0;
+  background-color: #334155;
   margin: 20px 0;
 }
 
-.text-blue { color: #2563eb; font-weight: 600; }
-.text-red { color: #dc2626; font-weight: 600; }
-.highlight-text { font-size: 1.25rem; font-weight: 700; color: #0f172a; }
+.text-blue { color: #38bdf8; font-weight: 600; text-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
+.text-red { color: #f87171; font-weight: 600; text-shadow: 0 0 10px rgba(248, 113, 113, 0.3); }
+.highlight-text { font-size: 1.25rem; font-weight: 700; color: #10b981; text-shadow: 0 0 10px rgba(16, 185, 129, 0.3); }
