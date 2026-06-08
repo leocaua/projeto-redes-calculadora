@@ -1,5 +1,7 @@
 package projeto.redes_calculadora.dto;
 
+import java.util.List;
+
 public class RedeDTO {
     private String ipInformado;
     private String mascaraSubrede;
@@ -10,15 +12,12 @@ public class RedeDTO {
     private String ultimoIpValido;
     private long quantidadeHosts;
     private String classeIp;
-
-    public RedeDTO() {
-
-    }
+    private List<BlocoRedeDTO> blocos;
 
     public RedeDTO(String ipInformado, String mascaraSubrede, String prefixoCidr,
                    String enderecoRede, String enderecoBroadcast, String primeiroIpValido,
-                   String ultimoIpValido, long quantidadeHosts, String classeIp) {
-
+                   String ultimoIpValido, long quantidadeHosts, String classeIp,
+                   List<BlocoRedeDTO> blocos) {
         this.ipInformado = ipInformado;
         this.mascaraSubrede = mascaraSubrede;
         this.prefixoCidr = prefixoCidr;
@@ -28,76 +27,37 @@ public class RedeDTO {
         this.ultimoIpValido = ultimoIpValido;
         this.quantidadeHosts = quantidadeHosts;
         this.classeIp = classeIp;
+        this.blocos = blocos;
     }
 
     public String getIpInformado() {
         return ipInformado;
     }
-    public void setIpInformado(String ipInformado) {
-        this.ipInformado = ipInformado;
-    }
-
-
     public String getMascaraSubrede() {
         return mascaraSubrede;
     }
-    public void setMascaraSubrede(String mascaraSubrede) {
-        this.mascaraSubrede = mascaraSubrede;
-    }
-
-
     public String getPrefixoCidr() {
         return prefixoCidr;
     }
-    public void setPrefixoCidr(String prefixoCidr) {
-        this.prefixoCidr = prefixoCidr;
-    }
-
-
     public String getEnderecoRede() {
         return enderecoRede;
     }
-    public void setEnderecoRede(String enderecoRede) {
-        this.enderecoRede = enderecoRede;
-    }
-
-
     public String getEnderecoBroadcast() {
         return enderecoBroadcast;
     }
-    public void setEnderecoBroadcast(String enderecoBroadcast) {
-        this.enderecoBroadcast = enderecoBroadcast;
-    }
-
-
     public String getPrimeiroIpValido() {
         return primeiroIpValido;
     }
-    public void setPrimeiroIpValido(String primeiroIpValido) {
-        this.primeiroIpValido = primeiroIpValido;
-    }
-
-
     public String getUltimoIpValido() {
         return ultimoIpValido;
     }
-    public void setUltimoIpValido(String ultimoIpValido) {
-        this.ultimoIpValido = ultimoIpValido;
-    }
-
-
     public long getQuantidadeHosts() {
         return quantidadeHosts;
     }
-    public void setQuantidadeHosts(long quantidadeHosts) {
-        this.quantidadeHosts = quantidadeHosts;
-    }
-
-
     public String getClasseIp() {
         return classeIp;
     }
-    public void setClasseIp(String classeIp) {
-        this.classeIp = classeIp;
+    public List<BlocoRedeDTO> getBlocos() {
+        return blocos;
     }
 }
