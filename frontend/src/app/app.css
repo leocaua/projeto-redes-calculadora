@@ -10,184 +10,60 @@
 }
 
 .container {
-  max-width: 540px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 32px;
-}
-
-.header h1 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #f8fafc;
-  margin: 0 0 8px 0;
-  letter-spacing: -0.5px;
-  text-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
-}
-
-.header p {
-  color: #94a3b8;
-  margin: 0;
-  font-size: 0.95rem;
-}
+.header { text-align: center; margin-bottom: 32px; }
+.header h1 { font-size: 2rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0; text-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
+.header p { color: #94a3b8; margin: 0; font-size: 0.95rem; }
 
 .card {
   background: #1e293b;
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
   border: 1px solid #334155;
   margin-bottom: 24px;
 }
 
-.input-group {
-  margin-bottom: 20px;
-}
+.form-card { max-width: 500px; margin-left: auto; margin-right: auto; }
 
-.input-group label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #cbd5e1;
-  margin-bottom: 8px;
-}
-
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; font-size: 0.875rem; font-weight: 600; color: #cbd5e1; margin-bottom: 8px; }
 .input-group input {
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 1rem;
-  font-family: 'Fira Code', monospace;
-  color: #f8fafc;
-  background-color: #0f172a;
-  border: 1px solid #475569;
-  border-radius: 8px;
-  box-sizing: border-box;
-  transition: all 0.2s ease;
+  width: 100%; padding: 12px 16px; font-size: 1rem; font-family: 'Fira Code', monospace;
+  color: #f8fafc; background-color: #0f172a; border: 1px solid #475569; border-radius: 8px; box-sizing: border-box;
 }
-
-.input-group input:focus {
-  outline: none;
-  border-color: #38bdf8;
-  background-color: #0f172a;
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
-}
-
-.input-group input::placeholder {
-  color: #475569;
-}
+.input-group input:focus { outline: none; border-color: #38bdf8; box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2); }
 
 .btn-primary {
-  width: 100%;
-  background-color: #0284c7;
-  color: #ffffff;
-  border: none;
-  padding: 14px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  width: 100%; background-color: #0284c7; color: #ffffff; border: none; padding: 14px;
+  font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;
 }
+.btn-primary:hover { background-color: #0369a1; box-shadow: 0 0 15px rgba(2, 132, 199, 0.5); }
 
-.btn-primary:hover {
-  background-color: #0369a1;
-  box-shadow: 0 0 15px rgba(2, 132, 199, 0.5);
-}
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px; }
+.label { font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 4px; }
+.value { font-size: 1.1rem; font-weight: 600; color: #f8fafc; font-family: 'Fira Code', monospace; }
 
-.error-msg {
-  color: #fca5a5;
-  background-color: rgba(127, 29, 29, 0.3);
-  border: 1px solid #991b1b;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-align: center;
-  margin: 16px 0 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
+.cidr-badge { background-color: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 2px 8px; border-radius: 4px; }
+.badge-class { color: #a855f7; }
+.divider { height: 1px; background-color: #334155; margin: 20px 0; }
 
-.result-card {
-  border-top: 4px solid #38bdf8;
-}
+.result-card h2 { font-size: 1.35rem; color: #f8fafc; margin: 0 0 4px 0; }
+.subtitle { color: #94a3b8; font-size: 0.9rem; margin: 0 0 20px 0; }
 
-.result-card h2 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #f8fafc;
-  margin: 0 0 20px 0;
-}
+.table-container { overflow-x: auto; border-radius: 8px; border: 1px solid #334155; }
+table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+th { background-color: #0f172a; padding: 12px 16px; color: #94a3b8; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; }
+td { padding: 12px 16px; border-bottom: 1px solid #334155; font-family: 'Fira Code', monospace; color: #cbd5e1; }
+tr:hover { background-color: rgba(51, 65, 85, 0.3); }
 
-.result-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
+.active-row { background-color: rgba(16, 185, 129, 0.15) !important; border: 2px solid #10b981; }
+.active-row td { color: #fff; font-weight: 500; }
 
-.result-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.result-item.full-width {
-  grid-column: 1 / -1;
-  background-color: rgba(15, 23, 42, 0.6);
-  padding: 16px;
-  border-radius: 8px;
-  align-items: center;
-  text-align: center;
-  border: 1px dashed #334155;
-}
-
-.label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-  color: #94a3b8;
-}
-
-.value {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #f8fafc;
-  font-family: 'Fira Code', monospace;
-}
-
-.highlight-box {
-  background-color: rgba(15, 23, 42, 0.6);
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #334155;
-}
-
-.cidr-badge {
-  background-color: rgba(56, 189, 248, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-weight: 700;
-  display: inline-block;
-  width: max-content;
-  text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
-}
-
-.divider {
-  height: 1px;
-  background-color: #334155;
-  margin: 20px 0;
-}
-
-.text-blue { color: #38bdf8; font-weight: 600; text-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
-.text-red { color: #f87171; font-weight: 600; text-shadow: 0 0 10px rgba(248, 113, 113, 0.3); }
-.highlight-text { font-size: 1.25rem; font-weight: 700; color: #10b981; text-shadow: 0 0 10px rgba(16, 185, 129, 0.3); }
+.text-blue { color: #38bdf8; font-weight: 600; }
+.text-red { color: #f87171; font-weight: 600; }
+.text-green { color: #10b981; }
+.font-bold { font-weight: 700; }

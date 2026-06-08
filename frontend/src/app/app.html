@@ -7,71 +7,68 @@
   <div class="card form-card">
     <div class="input-group">
       <label>Endereço IP</label>
-      <input type="text" [(ngModel)]="ipDigitado" placeholder="Ex: 192.168.1.10">
+      <input type="text" [(ngModel)]="ipDigitado" placeholder="Ex: 200.200.200.200">
     </div>
-
     <div class="input-group">
       <label>Máscara Decimal ou CIDR</label>
-      <input type="text" [(ngModel)]="mascaraDigitada" placeholder="Ex: 255.255.255.0 ou 24">
+      <input type="text" [(ngModel)]="mascaraDigitada" placeholder="Ex: /26">
     </div>
-
-    <button class="btn-primary" (click)="calcularRede()">Calcular Rede</button>
-
-    <p *ngIf="erroMsg" class="error-msg">
-      <span class="icon">⚠️</span> {{ erroMsg }}
-    </p>
+    <button class="btn-primary" (click)="calcularRede()">Calcular Sub-redes</button>
+    <p *ngIf="erroMsg" class="error-msg">⚠️ {{ erroMsg }}</p>
   </div>
 
   <div *ngIf="resultadoDaAPI" class="card result-card">
-    <h2>Resultados da Análise</h2>
+    <h2>Resultados para o IP Alvo</h2>
 
     <div class="result-grid">
-      <div class="result-item">
-        <span class="label">IP Analisado</span>
-        <span class="value">{{ resultadoDaAPI.ipInformado }}</span>
-      </div>
-      <div class="result-item">
-        <span class="label">Classe do IP</span>
-        <span class="value">{{ resultadoDaAPI.classeIp }}</span>
-      </div>
-      <div class="result-item highlight-box">
-        <span class="label">Máscara de Sub-rede</span>
-        <span class="value">{{ resultadoDaAPI.mascaraSubrede }}</span>
-      </div>
-      <div class="result-item highlight-box">
-        <span class="label">Prefixo CIDR</span>
-        <span class="value cidr-badge">{{ resultadoDaAPI.prefixoCidr }}</span>
-      </div>
+      <div class="result-item"><span class="label">IP Analisado</span><span class="value">{{ resultadoDaAPI.ipInformado }}</span></div>
+
+      <div class="result-item"><span class="label">Classe do IP</span><span class="value badge-class">{{ resultadoDaAPI.classeIp }}</span></div>
+
+      <div class="result-item highlight-box"><span class="label">Máscara de Sub-rede</span><span class="value">{{ resultadoDaAPI.mascaraSubrede }}</span></div>
+
+      <div class="result-item highlight-box"><span class="label">Prefixo CIDR</span><span class="value cidr-badge">{{ resultadoDaAPI.prefixoCidr }}</span></div>
+
     </div>
 
     <div class="divider"></div>
 
     <div class="result-grid">
-      <div class="result-item">
-        <span class="label">Endereço da Rede</span>
-        <span class="value text-blue">{{ resultadoDaAPI.enderecoRede }}</span>
-      </div>
-      <div class="result-item">
-        <span class="label">Endereço de Broadcast</span>
-        <span class="value text-red">{{ resultadoDaAPI.enderecoBroadcast }}</span>
-      </div>
+      <div class="result-item"><span class="label">Endereço da Rede</span><span class="value text-blue">{{ resultadoDaAPI.enderecoRede }}</span></div>
+      <div class="result-item"><span class="label">Endereço de Broadcast</span><span class="value text-red">{{ resultadoDaAPI.enderecoBroadcast }}</span></div>
     </div>
 
     <div class="divider"></div>
 
     <div class="result-grid">
-      <div class="result-item">
-        <span class="label">Primeiro Host</span>
-        <span class="value">{{ resultadoDaAPI.primeiroIpValido }}</span>
-      </div>
-      <div class="result-item">
-        <span class="label">Último Host</span>
-        <span class="value">{{ resultadoDaAPI.ultimoIpValido }}</span>
-      </div>
-      <div class="result-item full-width">
-        <span class="label">Total de Hosts Disponíveis</span>
-        <span class="value highlight-text">{{ resultadoDaAPI.quantidadeHosts }}</span>
-      </div>
+      <div class="result-item"><span class="label">Primeiro Host</span><span class="value">{{ resultadoDaAPI.primeiroIpValido }}</span></div>
+
+      <div class="result-item"><span class="label">Último Host</span><span class="value">{{ resultadoDaAPI.ultimoIpValido }}</span></div>
+      
+      <div class="result-item full-width"><span class="label">Total de Hosts Disponíveis</span><span class="value highlight-text">{{ resultadoDaAPI.quantidadeHosts }}</span></div>
+    </div>
+
+    <div class="divider" style="margin-top: 40px; border-width: 2px;"></div>
+    <h2>Todos os Blocos (Subnetting)</h2>
+    <p class="subtitle">A sub-rede destacada em verde contém o IP informado.</p>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Bloco</th><th>Rede</th><th>Primeiro Host</th><th>Último Host</th><th>Broadcast</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bloco of resultadoDaAPI.blocos" [class.active-row]="bloco.contemIpInformado">
+            <td><strong>#{{ bloco.numero }}</strong></td>
+            <td class="text-blue">{{ bloco.enderecoRede }}</td>
+            <td>{{ bloco.primeiroIpValido }}</td>
+            <td>{{ bloco.ultimoIpValido }}</td>
+            <td class="text-red">{{ bloco.enderecoBroadcast }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </main>
